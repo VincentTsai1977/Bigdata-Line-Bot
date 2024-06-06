@@ -5,15 +5,11 @@ class TemplateStrategy:
     def __init__(self, action, val):
         self.action = action
         self.val = val
-        self.template_map = {
-            '開課時間查詢': 'course',
-            '證書申請流程': 'certificate'
-        }
 
     def strategy_action(self):
         strategy_class = None
         templateFactory = TemplateFactory()
-        strategy_class = templateFactory.get_template(self.template_map.get(self.val))
+        strategy_class = templateFactory.get_template(self.val)
         return strategy_class
 
 class TaskStrategy:
